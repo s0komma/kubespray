@@ -94,6 +94,7 @@
 - name: Calico | Check if calico network pool has already been configured
   command: |-
     curl \
+      -k \
       --cacert {{ etcd_cert_dir }}/ca.pem \
       --cert {{ etcd_cert_dir}}/node-{{ inventory_hostname }}.pem \
       --key {{ etcd_cert_dir }}/node-{{ inventory_hostname }}-key.pem \
@@ -122,6 +123,7 @@
 - name: Calico | Get calico configuration from etcd
   command: |-
     curl \
+      -k \
       --cacert {{ etcd_cert_dir }}/ca.pem \
       --cert {{ etcd_cert_dir}}/node-{{ inventory_hostname }}.pem \
       --key {{ etcd_cert_dir }}/node-{{ inventory_hostname }}-key.pem \
