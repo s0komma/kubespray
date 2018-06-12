@@ -24,10 +24,10 @@
   pre_tasks:
     - name: gather facts from all instances
       setup:
-      delegate_to: "{{item}}"
+      delegate_to: "{{ groups['kube-master'] }}"
       delegate_facts: True
       gather_subset: 'min,network,!ohai,!hardware'
-      with_items: "{{ groups['k8s-cluster'] + groups['etcd'] + groups['calico-rr']|default([]) }}"
+#      with_items: "{{ groups['k8s-cluster'] + groups['etcd'] + groups['calico-rr']|default([]) }}"
 
 - hosts: k8s-cluster:etcd:calico-rr
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
