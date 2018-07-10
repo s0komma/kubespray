@@ -56,7 +56,7 @@
       {%- endfor %}
       {%- for host in groups['kube-master'] -%}
       {{ hostvars[host]['ooInstanceName'] }}
-      {%- endfor %}
+      {% endfor %}
       {%- if supplementary_addresses_in_ssl_keys is defined %}
       {%- for addr in supplementary_addresses_in_ssl_keys %}
       {{ addr }}
